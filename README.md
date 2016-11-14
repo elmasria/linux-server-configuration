@@ -113,7 +113,7 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 
 2. Install, Configure  PostgreSQL
 	* ``` sudo apt-get install postgresql postgresql-contrib ```
-	* Disable remote connections to PostgreSQL: check ``` /etc/postgresql/9.3/main/pg_hba.conf ```
+	* Disable remote connections to PostgreSQL check: ``` /etc/postgresql/9.3/main/pg_hba.conf ```
 
 	> Only allowed connections from the local host addresses 127.0.0.1 for IPv4 and ::1 for IPv6
 
@@ -127,9 +127,9 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 	* Requests: ``` sudo pip install requests ```
 	* Httplib2: ``` sudo pip install httplib2 ```
 	* Flask-seasurf: ``` sudo pip install flask-seasurf ```
-	* ``` pip install werkzeug==0.8.3 ```
-	* ``` pip install flask==0.9 ```
-	* ``` pip install Flask-Login==0.1.3 ```
+	* ```pip install werkzeug==0.8.3 ```
+	* ```pip install flask==0.9 ```
+	* ```pip install Flask-Login==0.1.3 ```
 	* Git: ``` sudo apt-get install git ```
 	* Configure your username: ``` git config --global user.name <username> ```
 	* Configure your email: ``` git config --global user.email <email> ```
