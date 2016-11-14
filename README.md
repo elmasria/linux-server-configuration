@@ -36,7 +36,7 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 	* ``` nano /etc/hosts ```
 	* Add the host: 127.0.1.1 localhost ip-10-20-53-117
 
-#### Set-up SSH keys for user grader
+#### Set-up SSH Keys For User **grader**
 
 1. Create ssh folder under **grader** home directory:
 ``` mkdir /home/grader/.ssh ```
@@ -56,19 +56,19 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 6. Grant the user **grader** the ability to read write the ssh folder:
 ``` chmod 644 /home/grader/.ssh/authorized_keys ```
 
-#### Disable root login
+#### Disable **root** Login
 
 1. Navigate to ``` /etc/ssh/sshd_config ```
 2. Change PermitRootLogin From without-password to no
 3. Restart the SSH service: ``` service ssh restart ```
 
-### Change SSH port
+### Change SSH Port
 
 1. Navigate to ``` /etc/ssh/sshd_config ```
 2. Change Port from 22 to  2200
 3. Restart the SSH service: ``` service ssh restart ```
 
-### Change timezone to UTC
+### Change Timezone to UTC
 
 1. Change timezone to UTC: ``` timedatectl set-timezone UTC ```
 2. Check the timezone with the date command (display the current timezone)
@@ -89,7 +89,7 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 > Developer may also do the steps using **grader** User but you should start all command
 > Using ``` sudo ```
 
-### Connect using ``` grader ``` user
+### Connect Using ``` grader ``` User
 
 1. Exit the current terminal to close the connection of the root user: ``` exit ```
 2. Connect using ``` grader ``` user :
@@ -103,24 +103,25 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 
 3. Reboot the machine: ``` reboot ```
 
-### Install required software
+### Install Required Software
 
 1. Apache to serve a Python mod_wsgi application
+
 	* Install Apache: ``` sudo apt-get install apache2 ```
 	* Install libapache2-mod-wsgi package: ``` sudo apt-get install libapache2-mod-wsgi ```
 	* Enable mod_wsgi: ``` sudo a2enmod wsgi ```
 	* Start apache service ``` sudo service apache2 start ```
 
-2. Install, Configure  PostgreSQL
+2. Install, Configure PostgreSQL
+
 	* ``` sudo apt-get install postgresql postgresql-contrib ```
-	* Disable remote connections to PostgreSQL check: ``` /etc/postgresql/9.3/main/pg_hba.conf ```
-
-> Only allowed connections from the local host addresses 127.0.0.1 for IPv4 and ::1 for IPv6
-
+	* Disable remote connections to PostgreSQL check: ``` sudo nano /etc/postgresql/9.3/main/pg_hba.conf ```
+	*Only allowed connections from the local host addresses 127.0.0.1 for IPv4 and ::1 for IPv6*
 	* Create a PostgreSQL user called catalog: ``` sudo -u postgres createuser -P catalog ```
 	* Create an empty database called catalog: ``` sudo -u postgres createdb -O catalog catalog ```
 
-3. Other required libraries
+3. Other Requirements
+
 	* Flask: ``` sudo apt-get install python-psycopg2 python-flask ```
 	* SQLAlchemy: ``` sudo apt-get install python-sqlalchemy python-pip ```
 	* Aauth2client: ``` sudo pip install oauth2client ```
@@ -135,6 +136,7 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 	* Configure your email: ``` git config --global user.email <email> ```
 
 4. Clone and Configure Project
+
 	* Navigate to host directory: ``` cd /var/www/ ```
 	* Create catalog directory: ``` sudo mkdir catalog ```
 	* create wsgi configuration file: ``` sudo touch catalog.wsgi ```
@@ -154,6 +156,7 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 	* clone the project: ``` sudo git clone https://github.com/elmasria/item-catalog.git```
 
 5. Configure Apache
+
 	* Create a virtual host conifg file: ``` sudo nano /etc/apache2/sites-available/catalog-app.conf ```
 
 	```
@@ -195,3 +198,17 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 	* Update the Facebook OAuth client secrets file
 	* Update DATABASE_URL ``` postgresql://catalog:PASSWORD@localhost/catalog ```
 	* Rename app.py to __init__.py
+	* Setup database: ``` sudo python setup.py ```
+	* Initialize database: ``` sudo python iniDB.py ```
+	* Visit Application:
+	``` http://ec2-35-160-12-62.us-west-2.compute.amazonaws.com/ ```
+	``` http://35.160.12.62 ```
+
+## References
+
+1. [Configuring Linux Web Servers](https://classroom.udacity.com/courses/ud299)
+2. [Ubuntu Upgrades](https://wiki.ubuntu.com/Security/Upgrades)
+3. [ubuntu PostgreSQL](https://help.ubuntu.com/community/PostgreSQL)
+4. [Resolve host error](http://askubuntu.com/questions/59458/error-message-when-i-run-sudo-unable-to-resolve-host-none)
+5. [Deploy a Flask Application](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+6.[Getting Started Guide](https://docs.google.com/document/d/1J0gpbuSlcFa2IQScrTIqI6o3dice-9T7v8EDNjJDfUI/pub?embedded=true)
