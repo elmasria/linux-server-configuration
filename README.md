@@ -115,7 +115,7 @@ for [Project 3](https://github.com/iliketomatoes/catalog).
 	* ``` sudo apt-get install postgresql postgresql-contrib ```
 	* Disable remote connections to PostgreSQL check: ``` /etc/postgresql/9.3/main/pg_hba.conf ```
 
-	> Only allowed connections from the local host addresses 127.0.0.1 for IPv4 and ::1 for IPv6
+> Only allowed connections from the local host addresses 127.0.0.1 for IPv4 and ::1 for IPv6
 
 	* Create a PostgreSQL user called catalog: ``` sudo -u postgres createuser -P catalog ```
 	* Create an empty database called catalog: ``` sudo -u postgres createdb -O catalog catalog ```
